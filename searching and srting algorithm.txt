@@ -1,0 +1,153 @@
+Linear search
+
+#include <iostream> 
+using namespace std; 
+  
+int search(int arr[], int n, int x) 
+{ 
+    int i; 
+    for (i = 0; i < n; i++) 
+        if (arr[i] == x) 
+            return i; 
+    return -1; 
+} 
+  
+int main(void) 
+{ 
+    int arr[] = { 2, 3, 4, 10, 40 }; 
+    int x = 10; 
+    int n = sizeof(arr) / sizeof(arr[0]); 
+    int result = search(arr, n, x); 
+   (result == -1)? cout<<"Element is not present in array" 
+                 : cout<<"Element is present at index " <<result; 
+   return 0; 
+} 
+
+
+Binary Search
+
+
+// C++ program to implement recursive Binary Search 
+#include <bits/stdc++.h> 
+using namespace std; 
+  
+// A recursive binary search function. It returns 
+// location of x in given array arr[l..r] is present, 
+// otherwise -1 
+int binarySearch(int arr[], int l, int r, int x) 
+{ 
+    if (r >= l) { 
+        int mid = l + (r - l) / 2; 
+  
+        // If the element is present at the middle 
+        // itself 
+        if (arr[mid] == x) 
+            return mid; 
+  
+        // If element is smaller than mid, then 
+        // it can only be present in left subarray 
+        if (arr[mid] > x) 
+            return binarySearch(arr, l, mid - 1, x); 
+  
+        // Else the element can only be present 
+        // in right subarray 
+        return binarySearch(arr, mid + 1, r, x); 
+    } 
+  
+    // We reach here when element is not 
+    // present in array 
+    return -1; 
+} 
+  
+int main(void) 
+{ 
+    int arr[] = { 2, 3, 4, 10, 40 }; 
+    int x = 10; 
+    int n = sizeof(arr) / sizeof(arr[0]); 
+    int result = binarySearch(arr, 0, n - 1, x); 
+    (result == -1) ? cout << "Element is not present in array"
+                   : cout << "Element is present at index " << result; 
+    return 0; 
+} 
+
+
+
+Insertion Sort
+
+
+// C++ program for insertion sort  
+#include <bits/stdc++.h> 
+using namespace std; 
+  
+/* Function to sort an array using insertion sort*/
+void insertionSort(int arr[], int n)  
+{  
+    int i, key, j;  
+    for (i = 1; i < n; i++) 
+    {  
+        key = arr[i];  
+        j = i - 1;  
+  
+        /* Move elements of arr[0..i-1], that are  
+        greater than key, to one position ahead  
+        of their current position */
+        while (j >= 0 && arr[j] > key) 
+        {  
+            arr[j + 1] = arr[j];  
+            j = j - 1;  
+        }  
+        arr[j + 1] = key;  
+    }  
+}  
+  
+// A utility function to print an array of size n  
+void printArray(int arr[], int n)  
+{  
+    int i;  
+    for (i = 0; i < n; i++)  
+        cout << arr[i] << " ";  
+    cout << endl; 
+}  
+  
+/* Driver code */
+int main()  
+{  
+    int arr[] = { 12, 11, 13, 5, 6 };  
+    int n = sizeof(arr) / sizeof(arr[0]);  
+  
+    insertionSort(arr, n);  
+    printArray(arr, n);  
+  
+    return 0;  
+}  
+
+
+Insertion Sort
+
+#include<iostream>
+using namespace  std;
+
+void insertion_sort(int A[], int N)
+{
+	
+	int i,j,temp;
+	for(i=1;i<N;i++)
+	{
+		temp=A[i];
+		for(j=i-1;j>=0 && temp<A[j];j--)
+		A[j+1]=A[j];
+	A[j+1]=temp;
+	
+	}
+	
+}
+int main()
+{
+	int i;
+	int A[]={11,85,96,78,469,96,89,7895,8};
+	insertion_sort(A,9);
+	for(i=0;i<=8;i++)
+	  cout<<" "<<A[i];
+	   
+}
+  
